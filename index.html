@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-content">
+            <div class="header-words">
+                <p>ROCK</p>
+                <p>PAPER</p>
+                <p>SCISSOR</p>
+            </div>
+    
+            <div class="scores">
+                <div class="score">
+                    <div class="score-label">COMPUTER <br/>SCORE</div>
+                    <div class="computer-score">0</div>
+                </div>
+                <div class="score">
+                    <div class="score-label">YOUR <br/>SCORE</div>
+                    <div class="user-score">0</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="game">
+            <button class="btn" id="rock"><img src="assets/icons8-fist-67 1.png"/></button>
+            <button class="btn" id="paper"><img src="assets/icons8-hand-64 1.png"/></button>
+            <button class="btn" id="scissors"><img src="assets/17911 1.png"/></button>
+        </div>
+       
+        <div id="user-choice"></div>
+        <div id="computer-choice"></div>
+        <div id="result"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
