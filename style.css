@@ -190,6 +190,7 @@ body {
   align-items: center;
   background-color: #004429;
   color: white;
+  opacity: 0;
   border: 10px solid white;
   border-radius: 5px;
 }
@@ -214,6 +215,10 @@ body {
   border-radius: 50%;
 
 }
+.show-modal{
+  opacity: 1;
+}
+
 
 .rules-header {
   font-style:'Roboto';
@@ -225,3 +230,46 @@ body {
   list-style-type: square;
   color: yellow;
 }
+
+
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  grid-template-areas: 
+    'you-title pc-title'
+    'you-picked pc-picked';
+  margin: 0 auto;
+}
+
+.results-heading {
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;  
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  padding: 2rem 0; 
+  color:white;
+ 
+}
+
+.results-heading:first-of-type {
+  grid-area: you-title;
+}
+
+.results-heading:last-of-type {
+  grid-area: pc-title;
+}
+
+#user-choice {
+  grid-area: you-picked;
+}
+
+#computer-choice {
+  grid-area: pc-picked;
+}
+
+.hidden {
+  display: none;
+}
+

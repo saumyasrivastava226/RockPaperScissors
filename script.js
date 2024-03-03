@@ -1,11 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('.choice-btn');
     const resultDiv = document.getElementById('result');
-    const userChoiceDiv = document.getElementById('user-choice');
-    const computerChoiceDiv = document.getElementById('computer-choice');
+   
     const userScoreDiv = document.querySelector('.user-score');
     const computerScoreDiv = document.querySelector('.computer-score');
-
+    const rulesButton=document.querySelector(".rules-btn");
+    const closeButton=document.querySelector(".close-btn");
+   const rulesModal=document.querySelector(".modal");
+   const gameDiv=document.querySelector(".game");
+   const resultsDiv=document.querySelector(".results")
+   const userChoiceDiv = document.getElementById('user-choice');
+   const computerChoiceDiv = document.getElementById('computer-choice');
     // Initialize scores from localStorage or default to 0
     let userScore = localStorage.getItem('userScore') || 0;
     let computerScore = localStorage.getItem('computerScore') || 0;
@@ -20,9 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const computerChoice = generateComputerChoice();
             const result = determineWinner(userChoice, computerChoice);
 
-            userChoiceDiv.textContent = `Your choice: ${userChoice}`;
-            computerChoiceDiv.textContent = `Computer's choice: ${computerChoice}`;
-            resultDiv.textContent = result;
+            displayChoice(userChoice, userChoiceDiv);
+            displayChoice(computerChoice, computerChoiceDiv);
+
 
             // Update scores
             if (result === "You win!") {
@@ -36,6 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             userScoreDiv.textContent = `${userScore}`;
             computerScoreDiv.textContent = `${computerScore}`;
+             gameDiv.classList.toggle('hidden');
+            resultsDiv.classList.toggle('hidden');
         });
     });
 
@@ -58,4 +65,33 @@ document.addEventListener('DOMContentLoaded', function() {
             return "Computer wins!";
         }
     }
+
+    rulesButton.addEventListener('click', function(){
+        rulesModal.classList.toggle('show-modal')
+    })
+    closeButton.addEventListener('click', function(){
+        rulesModal.classList.toggle('show-modal')
+    })
+
+    function displayChoice(choice, container) {
+        // Clear previous choice
+        container.innerHTML = '';
+    
+        // Create div element
+        const choiceDiv = document.createElement('div');
+        choiceDiv.classList.add('choice', choice);
+    
+        // Create image element
+        const img = document.createElement('img');
+        img.src = `./assets/${choice}.png`;
+        img.alt = choice.charAt(0).toUpperCase() + choice.slice(1); // Capitalize first letter
+        img.classList.add('choice-img');
+    
+        // Append image to choice div
+        choiceDiv.appendChild(img);
+    
+        // Append choice div to container
+        container.appendChild(choiceDiv);
+    }
+    
 });
