@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const buttons = document.querySelectorAll('.btn');
+    const buttons = document.querySelectorAll('.choice-btn');
     const resultDiv = document.getElementById('result');
     const userChoiceDiv = document.getElementById('user-choice');
     const computerChoiceDiv = document.getElementById('computer-choice');

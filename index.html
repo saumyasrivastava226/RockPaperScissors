@@ -30,11 +30,47 @@
             </div>
         </div>
 
-        <div id="game">
-            <button class="btn" id="rock"><img src="assets/icons8-fist-67 1.png"/></button>
-            <button class="btn" id="paper"><img src="assets/icons8-hand-64 1.png"/></button>
-            <button class="btn" id="scissors"><img src="assets/17911 1.png"/></button>
-        </div>
+       
+        <section class="game">
+            <button class="choice-btn" id="paper">
+              <div class="choice paper">
+                <img src="./assets/paper.png" alt="Paper" />
+              </div>
+            </button>
+            <button class="choice-btn" id="scissors">
+              <div class="choice scissors">
+                <img src="./assets/scsissor.png" alt="Scissors" />
+              </div>
+            </button>
+            <button class="choice-btn" id="rock">
+              <div class="choice rock">
+                <img src="./assets/rock.png" alt="Rock" />
+              </div>
+            </button>
+          </section>
+
+          <button class="rules-btn">
+            Rules
+          </button>
+          <div class="modal">
+            <div class="modal_header">
+              <button class="close-btn">
+                <img src="./assets/X.png" alt="Close">
+              </button>
+            </div>
+            <div class="modal-points">
+                <div class="rules-header">Game Rules</div>
+                <div class="rules-points">
+                  <ul>
+                    <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+                    <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
+                    <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+                    <li>If both players lay down the same hand, each player lays down another hand</li>
+                  </ul>
+                </div>
+            </div>
+
+          </div>
        
         <div id="user-choice"></div>
         <div id="computer-choice"></div>
