@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
    const resultsDiv=document.querySelector(".results")
    const userChoiceDiv = document.getElementById('user-choice');
    const computerChoiceDiv = document.getElementById('computer-choice');
+   const resultWinner=document.querySelector(".results-winner");
+   const resultText=document.querySelector(".results-text");
     // Initialize scores from localStorage or default to 0
     let userScore = localStorage.getItem('userScore') || 0;
     let computerScore = localStorage.getItem('computerScore') || 0;
@@ -27,7 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             displayChoice(userChoice, userChoiceDiv);
             displayChoice(computerChoice, computerChoiceDiv);
-
+            displayWinner(result);
+            
 
             // Update scores
             if (result === "You win!") {
@@ -54,17 +57,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function determineWinner(userChoice, computerChoice) {
         if (userChoice === computerChoice) {
-            return "It's a tie!";
+            return "TIE UP!";
         } else if (
             (userChoice === 'rock' && computerChoice === 'scissors') ||
             (userChoice === 'paper' && computerChoice === 'rock') ||
             (userChoice === 'scissors' && computerChoice === 'paper')
         ) {
-            return "You win!";
+            return "You win against pc";
         } else {
-            return "Computer wins!";
+            return "You lost against pc";
         }
     }
+    function displayWinner(result) {
+        setTimeout(() => {
+          const winner= result;
+      
+          
+            resultText.innerText = result;
+           
+       
+          
+          resultWinner.classList.toggle("hidden");
+          resultsDiv.classList.toggle("show-winner");
+        }, 1000);
+      }
 
     rulesButton.addEventListener('click', function(){
         rulesModal.classList.toggle('show-modal')
