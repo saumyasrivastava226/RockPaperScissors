@@ -2,6 +2,7 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body {
    
@@ -12,13 +13,18 @@ body {
     margin: 0;
     background-color: #89C15E ;
 }
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
 .header-content{
     border:1px solid white;
     border-radius: 5px;
     
-    height:13vh;
+    height:15vh;
     padding:1rem;
-    width:35vw;
+    width:40vw;
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -57,7 +63,7 @@ body {
     background-color: #ffffff;
     
     padding:2px;
-    height:14vh;
+    height:12vh;
     border-radius: 5px;
     width:7vw;
 }
@@ -80,9 +86,7 @@ body {
      color:
      #252525;
 }
-.container {
-    text-align: center;
-}
+
 
 
 #result {
@@ -93,7 +97,7 @@ body {
 .game {
    position: relative;
     display: grid;
-    grid-template-columns: (repeat(2,1fr));
+    grid-template-columns: repeat(2,1fr);
     grid-template-areas: 
         "rock scissors"
         "paper paper";
@@ -142,12 +146,15 @@ body {
 .choice.paper::before{
   background: 
   #FFA943;
+  background-image: url("./assets/Line\ 1.png") no-repeat;
 }
 .choice.scissors::before{
   background: #BD00FF;
+  background-image: url("./assets/Line\ 3.png") no-repeat;
 }
 .choice.rock::before{
-  background: #0074B6
+  background: #0074B6;
+  background-image: url("./assets/Line\ 2.png") no-repeat;
 }
 
 #rock {
@@ -241,7 +248,7 @@ body {
     'you-title pc-title'
     'you-picked pc-picked';
   margin: 0 auto;
-  width:40vw;
+  width:42vw;
 }
 
 
@@ -297,9 +304,33 @@ body {
    font-family:'Roboto';
    letter-spacing: .1rem;;
 }
-.winner .choice::after {
-  box-shadow: 0 0 0 40px #293251, 0 0 0 80px #232c4b, 0 0 0 130px #1e2949;
-  animation: winner 1s ease forwards;
+
+
+
+.results_result {
+  position: relative;
+  width: 7rem;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.results_result.show-animation.winner::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  z-index: -1;
+  box-shadow: 
+    0 0 0 15px rgba(46, 154, 37, 0.39), 
+    0 0 0 25px  rgba(46, 154, 37, 0.27), 
+    0 0 0 40px  rgba(46, 154, 37, 0.16);
+    animation: winner 1s ease forwards;
+  
 }
 
 @keyframes winner {
@@ -310,6 +341,7 @@ body {
     opacity: 1;
   }
 }
+
 
 .play-again{
   background: white;

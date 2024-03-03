@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize scores from localStorage or default to 0
     let userScore = localStorage.getItem('userScore') || 0;
     let computerScore = localStorage.getItem('computerScore') || 0;
+    const resultDivs = document.querySelectorAll(".results__result");
 
     // Update UI with initial scores
     userScoreDiv.textContent = `${userScore}`;
@@ -27,16 +28,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const computerChoice = generateComputerChoice();
             const result = determineWinner(userChoice, computerChoice);
 
-            displayChoice(userChoice, userChoiceDiv);
-            displayChoice(computerChoice, computerChoiceDiv);
+            displayChoice(userChoice, userChoiceDiv,result);
+            displayChoice(computerChoice, computerChoiceDiv,result);
             displayWinner(result);
             
 
             // Update scores
-            if (result === "You win!") {
+            if (result === "user") {
                 userScore++;
                 localStorage.setItem('userScore', userScore);
-            } else if (result === "Computer wins!") {
+            } else if (result === "computer") {
                 computerScore++;
                 localStorage.setItem('computerScore', computerScore);
             }
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             userScoreDiv.textContent = `${userScore}`;
             computerScoreDiv.textContent = `${computerScore}`;
-             gameDiv.classList.toggle('hidden');
+            gameDiv.classList.toggle('hidden');
             resultsDiv.classList.toggle('hidden');
         });
     });
@@ -57,31 +58,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function determineWinner(userChoice, computerChoice) {
         if (userChoice === computerChoice) {
-            return "TIE UP!";
+            return "tie";
         } else if (
             (userChoice === 'rock' && computerChoice === 'scissors') ||
             (userChoice === 'paper' && computerChoice === 'rock') ||
             (userChoice === 'scissors' && computerChoice === 'paper')
         ) {
-            return "You win against pc";
+            return "user";
         } else {
-            return "You lost against pc";
+            return "computer";
         }
     }
     function displayWinner(result) {
         setTimeout(() => {
-          const winner= result;
+          const winner = result;
+          console.log("winner", winner);
+          if (winner == 'user') {
+            resultText.innerText = 'You win against pc';
+            userChoiceDiv.classList.toggle('winner');
+            userChoiceDiv.classList.add('show-animation'); 
+            console.log(userChoiceDiv);
+          } else if (winner == 'computer') {
+            resultText.innerText = 'You lost against pc';
+            computerChoiceDiv.classList.toggle('winner');
+            computerChoiceDiv.classList.add('show-animation'); 
+            console.log(computerChoiceDiv);
+          } else {
+            resultText.innerText = 'Tie Up!';
+          }
       
-          
-            resultText.innerText = result;
-           
-       
-          
           resultWinner.classList.toggle("hidden");
           resultsDiv.classList.toggle("show-winner");
-        }, 1000);
+        }, 100);
       }
-
+      
     rulesButton.addEventListener('click', function(){
         rulesModal.classList.toggle('show-modal')
     })
@@ -90,24 +100,18 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
     function displayChoice(choice, container) {
-        // Clear previous choice
+        
         container.innerHTML = '';
     
-        // Create div element
+        
         const choiceDiv = document.createElement('div');
         choiceDiv.classList.add('choice', choice);
-    
-        // Create image element
         const img = document.createElement('img');
         img.src = `./assets/${choice}.png`;
-        img.alt = choice.charAt(0).toUpperCase() + choice.slice(1); // Capitalize first letter
+        img.alt = choice.charAt(0).toUpperCase() + choice.slice(1); 
         img.classList.add('choice-img');
-    
-        // Append image to choice div
         choiceDiv.appendChild(img);
-    
-        // Append choice div to container
-        container.appendChild(choiceDiv);
+    container.appendChild(choiceDiv);
     }
     
 });
