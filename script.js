@@ -124,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
         resultsDiv.classList.toggle("show-winner");
         rulesButton.classList.remove("rules-btn-after");
         nextButton.classList.add("hidden"); 
+        playAgainBtn.classList.remove("hidden");
     })
     playAgainBtn.addEventListener("click", () => {
         gameDiv.classList.toggle("hidden");

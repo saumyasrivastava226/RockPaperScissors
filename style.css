@@ -13,11 +13,8 @@ body {
     margin: 0;
     background-color: #89C15E ;
 }
-.container {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-}
+
+
 .header-content{
     border:1px solid white;
     border-radius: 5px;
@@ -117,6 +114,7 @@ body {
   
   
 }
+
 .choice-btn{
   border:none;
   outline:none;
@@ -203,58 +201,83 @@ body {
 }
 
 .modal {
-
   position: absolute;
   height: 22rem;
-  width: 20rem;
+  width: 21rem;
   right: 3rem;
   bottom: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: #004429;
+ 
   color: white;
   opacity: 0;
   border: 10px solid white;
   border-radius: 5px;
+ 
 }
 
-.modal_header{
+.modal_header {
   position: absolute;
   top: -40px;
-  right: -35px;
- 
+  right: -50px;
   background: transparent;
   border: none;
-  height:10vh;
-  width:9vh;
-
+  height: 10vh;
+  width: 10vh;
+}
+.modal-points{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #004429;
+  height:100%;
+  width:100%;
+  border-radius: 4px solid transparent;
+  padding:20px 12px;
+ 
 }
 
-
-.close-btn{
+.close-btn {
   background-color: #FF0000;
-  padding:12px;
+  padding: 12px;
   border: 6px solid white;
   border-radius: 50%;
-
 }
-.show-modal{
+
+.show-modal {
   opacity: 1;
 }
 
-
 .rules-header {
-  font-style:'Roboto';
-  font-size:1.5rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
 }
-
 
 .rules-points ul {
-  list-style-type: square;
-  color: yellow;
+  list-style: none; 
+  
+ 
 }
+
+.rules-points ul li {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  position: relative;
+  margin:.8rem;
+}
+
+.rules-points ul li::before {
+  content: "\25AA"; 
+  color: yellow; 
+  font-size: 1.5em; 
+  position: absolute;
+  left: -20px; 
+  
+}
+
 
 
 
@@ -362,18 +385,19 @@ body {
 }
 
 
-.play-again{
+.play-again, .play-again-two{
   background: white;
   outline:none;
   border:2px solid transparent;
   border-radius: .6rem;
-  color:black;
-  padding:0.6rem 3.5rem;
+  color:#656565;
+  padding:0.6rem 1.5rem;
   font-family:'Roboto';
   text-transform:uppercase;
- font-size:1rem;
- letter-spacing:0.1rem;
- cursor:pointer;
+  font-size:.8rem;
+  letter-spacing:0.1rem;
+  cursor:pointer;
+  width:10vw;
 }
 
 .trophy-image-container {
@@ -385,12 +409,14 @@ body {
 .trophy-image-container img:nth-child(2) {
   position: absolute;
   top: 100px;
-  left: 180px;
+  left: 170px;
   
 }
 .trophy-content{
   display:flex;
   flex-direction:column;
+  justify-content: center;
+  align-items: center;
 
 }
 .hurray{
