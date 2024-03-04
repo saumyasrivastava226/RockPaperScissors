@@ -134,21 +134,12 @@ body {
         "paper paper";
     place-items: center;
     height:25rem;
-   
+    min-width:25vw;
     padding-top:2rem;
      
 }
-.game::before {
-  content:'';
-  position:absolute;
-  width: 100%;
-  height:100%;
-  top:25%;
-  left:25%;
 
- 
-  
-}
+
 
 .choice-btn{
   border:none;

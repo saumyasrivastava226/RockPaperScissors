@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const playAgainBtn = document.querySelector(".play-again");
     const trophyDiv=document.querySelector(".trophy");
     const backgroundDiv= document.querySelector(".background-setup");
-
+    const trophyPlayAgainBtn = document.querySelector(".trophy .play-again");
 
    
     userScoreDiv.textContent = `${userScore}`;
@@ -108,6 +108,26 @@ document.addEventListener('DOMContentLoaded', function() {
     closeButton.addEventListener('click', function(){
         rulesModal.classList.toggle('show-modal')
     })
+    trophyPlayAgainBtn.addEventListener("click", () => {
+      gameDiv.classList.remove("hidden");
+      backgroundDiv.classList.remove("hidden");
+      resultsDiv.classList.add("hidden");
+      userChoiceDiv.classList.remove("show-animation");
+      computerChoiceDiv.classList.remove("show-animation")
+      userChoiceDiv.classList.remove("winner");
+      computerChoiceDiv.classList.remove("winner")
+      resultDivs.forEach((resultDiv) => {
+        resultDiv.innerHTML = "";
+      });
+      playAgainBtn.innerText='Play Again'
+      resultText.innerText = "";
+      resultWinner.classList.add("hidden");
+      resultsDiv.classList.remove("show-winner");
+      rulesButton.classList.remove("rules-btn-after");
+      nextButton.classList.add("hidden"); 
+      trophyDiv.classList.add("hidden");
+      headerDiv.classList.remove("hidden");
+    });
     nextButton.addEventListener('click',function(){
        
         headerDiv.classList.add("hidden");
