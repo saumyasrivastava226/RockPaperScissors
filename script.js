@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultDivs = document.querySelectorAll(".results__result");
     const playAgainBtn = document.querySelector(".play-again");
     const trophyDiv=document.querySelector(".trophy");
+    const backgroundDiv= document.querySelector(".background-setup");
 
 
    
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             displayChoice(userChoice, userChoiceDiv,result);
             displayChoice(computerChoice, computerChoiceDiv,result);
             displayWinner(result);
-            
+           
 
             
             if (result === "user") {

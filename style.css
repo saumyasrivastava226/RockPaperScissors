@@ -76,7 +76,28 @@ body {
     border-radius: 5px;
     width:7vw;
 }
+#horizontal{
+  position:fixed;
+  top:21rem;
+  left:43.5rem;
+  scale:1.4;
+  z-index:-1;
+}
+#from-scissor{
+   position:fixed;
+   top:25rem;
+   left:51rem;
+   z-index:-1;
+   scale:1.4;
+}
+#from-rock{
+   position: fixed;
+   top:25rem;
+   left:41rem;
+   scale:1.4;
+   z-index:-1;
 
+}
 
 .score-label {
     color: var(--text-color-secondary);
@@ -122,9 +143,10 @@ body {
   position:absolute;
   width: 100%;
   height:100%;
-  top:35%;
-  left:20%;
-  
+  top:25%;
+  left:25%;
+
+ 
   
 }
 
