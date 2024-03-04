@@ -1,22 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('.choice-btn');
     const resultDiv = document.getElementById('result');
-   
+    const headerDiv=document.querySelector('.header-content');
     const userScoreDiv = document.querySelector('.user-score');
     const computerScoreDiv = document.querySelector('.computer-score');
     const rulesButton=document.querySelector(".rules-btn");
     const closeButton=document.querySelector(".close-btn");
-   const rulesModal=document.querySelector(".modal");
-   const gameDiv=document.querySelector(".game");
-   const resultsDiv=document.querySelector(".results")
-   const userChoiceDiv = document.getElementById('user-choice');
-   const computerChoiceDiv = document.getElementById('computer-choice');
-   const resultWinner=document.querySelector(".results-winner");
-   const resultText=document.querySelector(".results-text");
-    // Initialize scores from localStorage or default to 0
+    const rulesModal=document.querySelector(".modal");
+    const gameDiv=document.querySelector(".game");
+    const resultsDiv=document.querySelector(".results")
+    const userChoiceDiv = document.getElementById('user-choice');
+    const computerChoiceDiv = document.getElementById('computer-choice');
+    const resultWinner=document.querySelector(".results-winner");
+    const resultText=document.querySelector(".results-text");
+    const nextButton= document.querySelector(".next-btn");
     let userScore = localStorage.getItem('userScore') || 0;
     let computerScore = localStorage.getItem('computerScore') || 0;
     const resultDivs = document.querySelectorAll(".results__result");
+    const playAgainBtn = document.querySelector(".play-again");
+    const trophyDiv=document.querySelector(".trophy");
+
 
     // Update UI with initial scores
     userScoreDiv.textContent = `${userScore}`;
@@ -76,7 +79,10 @@ document.addEventListener('DOMContentLoaded', function() {
           if (winner == 'user') {
             resultText.innerText = 'You win against pc';
             userChoiceDiv.classList.toggle('winner');
-            userChoiceDiv.classList.add('show-animation'); 
+            userChoiceDiv.classList.add('show-animation');
+            
+            rulesButton.classList.toggle("rules-btn-after");
+            nextButton.classList.toggle("hidden"); 
             console.log(userChoiceDiv);
           } else if (winner == 'computer') {
             resultText.innerText = 'You lost against pc';
@@ -92,12 +98,51 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
       }
       
+      
     rulesButton.addEventListener('click', function(){
         rulesModal.classList.toggle('show-modal')
     })
     closeButton.addEventListener('click', function(){
         rulesModal.classList.toggle('show-modal')
     })
+    nextButton.addEventListener('click',function(){
+       
+        headerDiv.classList.add("hidden");
+        trophyDiv.classList.remove("hidden");
+        gameDiv.classList.add("hidden");
+        resultsDiv.classList.add("hidden");
+        userChoiceDiv.classList.remove("show-animation");
+        computerChoiceDiv.classList.remove("show-animation")
+        userChoiceDiv.classList.remove("winner");
+        computerChoiceDiv.classList.remove("winner")
+        resultDivs.forEach((resultDiv) => {
+          resultDiv.innerHTML = "";
+        });
+        
+        resultText.innerText = "";
+        resultWinner.classList.toggle("hidden");
+        resultsDiv.classList.toggle("show-winner");
+        rulesButton.classList.remove("rules-btn-after");
+        nextButton.classList.add("hidden"); 
+    })
+    playAgainBtn.addEventListener("click", () => {
+        gameDiv.classList.toggle("hidden");
+        resultsDiv.classList.toggle("hidden");
+        userChoiceDiv.classList.remove("show-animation");
+        computerChoiceDiv.classList.remove("show-animation")
+        userChoiceDiv.classList.remove("winner");
+        computerChoiceDiv.classList.remove("winner")
+        resultDivs.forEach((resultDiv) => {
+          resultDiv.innerHTML = "";
+        });
+      
+        resultText.innerText = "";
+        resultWinner.classList.toggle("hidden");
+        resultsDiv.classList.toggle("show-winner");
+        rulesButton.classList.remove("rules-btn-after");
+        nextButton.classList.add("hidden"); 
+      });
+      
 
     function displayChoice(choice, container) {
         
@@ -111,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
         img.alt = choice.charAt(0).toUpperCase() + choice.slice(1); 
         img.classList.add('choice-img');
         choiceDiv.appendChild(img);
-    container.appendChild(choiceDiv);
+        container.appendChild(choiceDiv);
     }
     
 });
