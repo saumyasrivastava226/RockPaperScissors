@@ -1,4 +1,16 @@
 
+:root {
+  --bg-color: #89C15E;
+  --bg-color-rules: #004429;
+  --bg-color-cross: #FF0000;
+  --text-color: #fff;
+  --text-color-secondary: #656565;
+  --black-color:#252525;
+  --paper: #FFA943;
+  --scissors:#BD00FF;
+  --rock:#0074B6;
+  --bullet-color:yellow;
+}
 *{
   margin: 0;
   padding: 0;
@@ -11,12 +23,12 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #89C15E ;
+    background-color: var(--bg-color) ;
 }
 
 
 .header-content{
-    border:1px solid white;
+    border:1px solid var(--text-color);
     border-radius: 5px;
     
     height:15vh;
@@ -25,7 +37,7 @@ body {
     display:flex;
     justify-content: space-between;
     align-items: center;
-    color:white;
+    color:var(--text-color)
     
 }
 .header-words {
@@ -57,7 +69,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #ffffff;
+    background-color: var(--text-color);
     
     padding:2px;
     height:12vh;
@@ -67,12 +79,13 @@ body {
 
 
 .score-label {
-    color: #656565;
+    color: var(--text-color-secondary);
     font-family: "Roboto";
     font-weight: 500;
     font-size: 12px;
     display:flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .user-score , .computer-score{
@@ -80,8 +93,8 @@ body {
      font-size:32px;
      font-weight: 700;
      bottom: 1px;
-     color:
-     #252525;
+     color:var(--black-color);
+     text-align: center;
 }
 
 
@@ -125,7 +138,7 @@ body {
   position:relative;
   width:7rem;
   height:7rem;
-  background: #fff;
+  background: var(--text-color);
   border-radius: 50%;
   display:grid;
   place-items:center;
@@ -138,20 +151,19 @@ body {
   width:120%;
   height:120%;
   border-radius:50%;
-  background: red;
+  background: var(--bg-color-cross);
   z-index: -1;
 }
 .choice.paper::before{
-  background: 
-  #FFA943;
+  background:var(--paper);
   background-image: url("./assets/Line\ 1.png") no-repeat;
 }
 .choice.scissors::before{
-  background: #BD00FF;
+  background: var(--scissors);
   background-image: url("./assets/Line\ 3.png") no-repeat;
 }
 .choice.rock::before{
-  background: #0074B6;
+  background: var(--rock);
   background-image: url("./assets/Line\ 2.png") no-repeat;
 }
 
@@ -172,9 +184,9 @@ body {
   right:2rem;
   background: none;
   outline:none;
-  border: 2px solid white;
+  border: 2px solid var(--text-color);
   border-radius: 5px;
-  color:white;
+  color:var(--text-color);
   font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
@@ -190,9 +202,9 @@ body {
   right:2rem;
   background: none;
   outline:none;
-  border: 2px solid white;
+  border: 2px solid var(--text-color);
   border-radius: 5px;
-  color:white;
+  color:var(--text-color);
   font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
@@ -211,9 +223,9 @@ body {
   justify-content: space-around;
   align-items: center;
  
-  color: white;
+  color: var(--text-color);
   opacity: 0;
-  border: 10px solid white;
+  border: 10px solid var(--text-color);
   border-radius: 5px;
  
 }
@@ -232,7 +244,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  background-color: #004429;
+  background-color: var(--bg-color-rules);
   height:100%;
   width:100%;
   border-radius: 4px solid transparent;
@@ -241,9 +253,9 @@ body {
 }
 
 .close-btn {
-  background-color: #FF0000;
+  background-color: var(--bg-color-cross);
   padding: 12px;
-  border: 6px solid white;
+  border: 6px solid var(--text-color);
   border-radius: 50%;
 }
 
@@ -264,14 +276,14 @@ body {
 
 .rules-points ul li {
   font-family: 'Roboto', sans-serif;
-  color: white;
+  color: var(--text-color);
   position: relative;
   margin:.8rem;
 }
 
 .rules-points ul li::before {
   content: "\25AA"; 
-  color: yellow; 
+  color: var(--bullet-color); 
   font-size: 1.5em; 
   position: absolute;
   left: -20px; 
@@ -299,7 +311,7 @@ body {
   font-size: 1.5rem;
   letter-spacing: 0.1em;
   padding: 2rem 0; 
-  color:white;
+  color:var(--text-color);
  
 }
 
@@ -340,7 +352,7 @@ body {
 .results-text{
    font-size:1.2rem;
    padding-bottom:1.5rem;
-   color:white;
+   color:var(--text-color);
    text-transform: uppercase;
    font-family:'Roboto';
    letter-spacing: .1rem;;
@@ -390,7 +402,7 @@ body {
   outline:none;
   border:2px solid transparent;
   border-radius: .6rem;
-  color:#656565;
+  color:var(--text-color-secondary);
   padding:0.6rem 1.5rem;
   font-family:'Roboto';
   text-transform:uppercase;
@@ -424,12 +436,12 @@ body {
   font-size:4rem;
   padding:1rem;
   letter-spacing:.2rem;
-  color:white;
+  color:var(--text-color);
 }
 .congrats-msg{
   font-family:'Roboto',sans-serif;
   font-size:2rem;
-  color:white;
+  color:var(--text-color);
   letter-spacing:.1rem;
   padding:1rem;
 }

@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const trophyDiv=document.querySelector(".trophy");
 
 
-    // Update UI with initial scores
+   
     userScoreDiv.textContent = `${userScore}`;
     computerScoreDiv.textContent = `${computerScore}`;
 
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             displayWinner(result);
             
 
-            // Update scores
+            
             if (result === "user") {
                 userScore++;
                 localStorage.setItem('userScore', userScore);
@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log(computerChoiceDiv);
           } else {
             resultText.innerText = 'Tie Up!';
+            playAgainBtn.innerText='Replay'
           }
       
           resultWinner.classList.toggle("hidden");
@@ -136,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
         resultDivs.forEach((resultDiv) => {
           resultDiv.innerHTML = "";
         });
-      
+        playAgainBtn.innerText='Play Again'
         resultText.innerText = "";
         resultWinner.classList.toggle("hidden");
         resultsDiv.classList.toggle("show-winner");
