@@ -74,32 +74,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     function displayWinner(result) {
-        setTimeout(() => {
+      setTimeout(() => {
           const winner = result;
           console.log("winner", winner);
           if (winner == 'user') {
-            resultText.innerText = 'You win against pc';
+            resultText.innerHTML = '<div class="results-text-main">You win</div> <div class="line">against PC</div>';
             userChoiceDiv.classList.toggle('winner');
             userChoiceDiv.classList.add('show-animation');
-            
             rulesButton.classList.toggle("rules-btn-after");
-            nextButton.classList.toggle("hidden"); 
+            nextButton.classList.toggle("hidden");
             console.log(userChoiceDiv);
-          } else if (winner == 'computer') {
-            resultText.innerText = 'You lost against pc';
+        } else if (winner == 'computer') {
+            resultText.innerHTML = '<div class="results-text-main">You lost</div> <div class="line">against PC</div>';
             computerChoiceDiv.classList.toggle('winner');
-            computerChoiceDiv.classList.add('show-animation'); 
+            computerChoiceDiv.classList.add('show-animation');
             console.log(computerChoiceDiv);
-          } else {
+        } else {
             resultText.innerText = 'Tie Up!';
-            playAgainBtn.innerText='Replay'
-          }
-      
+            playAgainBtn.innerText = 'Replay';
+        }
+        
+  
           resultWinner.classList.toggle("hidden");
           resultsDiv.classList.toggle("show-winner");
-
-        }, 100);
-      }
+      }, 100);
+  }
+  
+  
       
       
     rulesButton.addEventListener('click', function(){
