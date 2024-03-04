@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             displayChoice(userChoice, userChoiceDiv,result);
             displayChoice(computerChoice, computerChoiceDiv,result);
             displayWinner(result);
-           
+            backgroundDiv.classList.add("hidden");
 
             
             if (result === "user") {
@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
           resultWinner.classList.toggle("hidden");
           resultsDiv.classList.toggle("show-winner");
+
         }, 100);
       }
       
@@ -130,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     playAgainBtn.addEventListener("click", () => {
         gameDiv.classList.toggle("hidden");
+        backgroundDiv.classList.remove("hidden");
         resultsDiv.classList.toggle("hidden");
         userChoiceDiv.classList.remove("show-animation");
         computerChoiceDiv.classList.remove("show-animation")
